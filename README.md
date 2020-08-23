@@ -1,2 +1,2 @@
 # hassio-addons
-Home Assistant Add-ons
+Alexey's Home Assistant Add-ons repository
