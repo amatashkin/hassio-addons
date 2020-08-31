@@ -1,6 +1,6 @@
 {
   "name": "snapcast-server",
-  "version": "latest",
+  "version": "0.0.2",
   "slug": "snapcastserver",
   "description": "Snapcast server",
   "startup": "system",
@@ -53,5 +53,6 @@
         }
    },
   "ports": {"1704/tcp": 1704, "1705/tcp": 1705, "1780/tcp": 1780},
-  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"]
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "image": "amatashkin/{arch}-addon-snapserver"
   }
