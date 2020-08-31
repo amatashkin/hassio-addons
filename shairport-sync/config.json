@@ -1,0 +1,49 @@
+{
+  "name": "Shairport Sync",
+  "version": "0.0.4",
+  "slug": "shairport_sync",
+  "description": "Shairport Sync with pipe output for Home Assistant",
+  "url": "https://github.com/amatashkin/addon-shairport-sync",
+  "startup": "application",
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armhf",
+    "armv7",
+    "i386"
+  ],
+  "boot": "auto",
+  "hassio_api": true,
+  "homeassistant_api": true,
+  "host_network": true,
+  "hassio_role": "default",
+  "privileged": [],
+  "audio": true,
+  "map": [
+    "share:rw"
+  ],
+  "options": {
+    "log_level": "info",
+    "avahi_interfaces": "",
+    "avahi_hostname": "",
+    "avahi_domainname": "local",
+    "airplay_name": "HomeAssistant",
+    "enable_ipv6": false,
+    "pipe": "/share/snapfifo/shairport"
+  },
+  "schema": {
+    "log_level": "match(^(trace|debug|info|notice|warning|error|fatal)$)",
+    "avahi_interfaces": "str",
+    "avahi_hostname": "str",
+    "avahi_domainname": "str",
+    "airplay_name": "str",
+    "enable_ipv6": "bool",
+    "pipe": "str",
+    "metadata_pipe": "str?"
+  },
+  "environment": {
+    "LOG_FORMAT": "{LEVEL}: {MESSAGE}"
+  },
+  "image": "amatashkin/{arch}-addon-shairport-sync"
+}
+

@@ -1,0 +1,42 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Community Home Assistant Add-on: Shairport Sync
+# Starts the Shairport Sync service
+# ==============================================================================
+# shellcheck disable=SC1091
+
+
+# Wait for Avahi to become available
+s6-svwait -u -t 5000 /var/run/s6/services/avahi
+
+# Wait at least 5 seconds before starting
+# Avahi might need some time.
+sleep 5
+
+declare -a options
+
+# Run with avahi
+options+=(-m avahi)
+
+# Set custom name if provided
+if bashio::config.has_value 'airplay_name'; then
+    options+=(-a $(bashio::config 'airplay_name'))
+else
+    options+=(-a $(bashio::info.hostname))
+fi
+
+# Set pipe backend if provided
+if bashio::config.has_value 'pipe'; then
+    bashio::log.info 'Adding pipe backend...'
+    options+=(--output=pipe)
+fi
+
+# Are we running in debug mode?
+if bashio::debug; then
+  options+=(--verbose)
+fi
+
+# Run shairport-sync
+bashio::log.info 'Starting the Shairport Sync...'
+bashio::log.info "with options: ${options[@]}"
+exec shairport-sync "${options[@]}"
