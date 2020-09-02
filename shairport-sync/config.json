@@ -3,7 +3,7 @@
   "version": "0.0.5",
   "slug": "shairport_sync",
   "description": "Shairport Sync with pipe output for Home Assistant",
-  "url": "https://github.com/amatashkin/addon-shairport-sync",
+  "url": "https://github.com/amatashkin/hassio-addons/tree/master/shairport-sync",
   "startup": "application",
   "arch": ["amd64"],
   "boot": "auto",
