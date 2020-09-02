@@ -1,16 +1,18 @@
 {
-  "name": "snapcast-client",
-  "version": "beta",
-  "slug": "snapcastclient",
-  "description": "Snapcast client",
-  "startup": "services",
+  "name": "Snapclient",
+  "version": "0.0.1",
+  "slug": "snapclient",
+  "description": "Snapcast - Synchronous audio player",
+  "url": "https://github.com/amatashkin/hassio-addons/tree/master/snapclient",
+  "startup": "system",
   "boot": "auto",
   "audio": true,
   "options": { 
-    "snapclientopts": "-h snapcastserver"
+    "snapclientopts": "-h snapserver"
   },
   "schema": {
     "snapclientopts": "str"
    },
-  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"]
+  "arch": ["amd64"],
+  "image": "amatashkin/hassio-snapclient-{arch}"
   }
