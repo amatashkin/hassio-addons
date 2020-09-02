@@ -24,7 +24,8 @@ options+=(--backend pipe --device $(bashio::config 'pipe'))
 # Run librespot
 bashio::log.info 'Starting Librespot...'
 
-if bashio::debug; then
+# Are we running in debug mode?
+if bashio::config.true 'verbose'; then
   options+=(--verbose)
   bashio::log.info "with options: ${options[@]}"
 fi

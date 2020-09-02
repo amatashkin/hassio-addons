@@ -1,6 +1,6 @@
 {
   "name": "Librespot",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "slug": "librespot",
   "description": "Spotify Connect receiver (librespot)",
   "url": "https://github.com/amatashkin/hassio-addons/tree/master/librespot",
