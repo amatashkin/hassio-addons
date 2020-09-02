@@ -1,18 +1,28 @@
 {
-  "name": "librespot",
-  "version": "v0.1.3",
+  "name": "Librespot",
+  "version": "0.0.4",
   "slug": "librespot",
-  "description": "spotify",
-  "startup": "services",
+  "description": "Spotify Connect receiver (librespot)",
+  "url": "https://github.com/amatashkin/hassio-addons/tree/master/librespot",
+  "startup": "application",
+  "arch": [
+    "amd64"
+  ],
   "boot": "auto",
-  "map": ["share:rw"],
+  "map": [
+    "share:rw"
+  ],
   "host_network": true,
   "host_dbus": true,
   "options": { 
-    "librespotopts": "-v -n HomeAssistant --backend pipe --device /share/snapfifo/librespot"
+    "librespot_name": "HomeAssistant",
+    "pipe": "/share/snapfifo/librespot",
+    "verbose": false
   },
   "schema": {
-    "librespotopts": "str"
+    "librespot_name": "str",
+    "pipe": "str",
+    "verbose": "bool?"
    },
-  "arch": ["armhf", "aarch64", "amd64"]
-  }
+   "image": "amatashkin/hassio-librespot-{arch}"
+}
