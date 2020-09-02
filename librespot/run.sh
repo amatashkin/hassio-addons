@@ -1,10 +1,32 @@
-#!/bin/bash
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Home Assistant Add-on: Librespot
+# Starts the Librespot service
+# ==============================================================================
+# shellcheck disable=SC1091
 
-CONFIG_PATH=/data/options.json
+declare -a options
 
-LIBRESPOT_OPTS=$(jq --raw-output ".librespotopts" $CONFIG_PATH)
+# Are we running in debug mode?
+if bashio::debug; then
+  options+=(--verbose)
+fi
 
-mkdir -p /share/snapfifo
+# Set custom name if provided
+if bashio::config.has_value 'librespot_name'; then
+    options+=(-n $(bashio::config 'librespot_name'))
+else
+    options+=(-n $(bashio::info.hostname))
+fi
 
-echo "Start Librespot..."
-librespot ${LIBRESPOT_OPTS}
+options+=(--backend pipe --device $(bashio::config 'pipe'))
+
+# Run librespot
+bashio::log.info 'Starting Librespot...'
+
+if bashio::debug; then
+  options+=(--verbose)
+  bashio::log.info "with options: ${options[@]}"
+fi
+
+exec librespot "${options[@]}"
