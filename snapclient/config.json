@@ -1,6 +1,6 @@
 {
   "name": "Snapclient",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "slug": "snapclient",
   "description": "Snapcast - Synchronous audio player",
   "url": "https://github.com/amatashkin/hassio-addons/tree/master/snapclient",
@@ -8,10 +8,10 @@
   "boot": "auto",
   "audio": true,
   "options": { 
-    "snapclientopts": "-h snapserver"
+    "snapserver": "homeassistant"
   },
   "schema": {
-    "snapclientopts": "str"
+    "snapserver": "str?"
    },
   "arch": ["amd64"],
   "image": "amatashkin/hassio-snapclient-{arch}"

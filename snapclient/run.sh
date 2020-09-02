@@ -1,8 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bashio
 
-CONFIG_PATH=/data/options.json
+declare -a options
 
-SNAPCLIENT_OPTS=$(jq --raw-output ".snapclientopts" $CONFIG_PATH)
+# Set custom server name if provided
+if bashio::config.has_value 'snapserver'; then
+    options+=(-h $(bashio::config 'snapserver'))
+    bashio::log.info "Connecting to $(bashio::config 'snapserver')"
+else
+    options+=(-h $(bashio::info.hostname))
+    bashio::log.info "Connecting to HomeAssistant"
+fi
 
-echo "Start Snapclient..."
-/usr/bin/snapclient ${SNAPCLIENT_OPTS}
+echo "Starting Snapclient..."
+exec snapclient "${options[@]}"
