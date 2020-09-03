@@ -5,7 +5,6 @@ Alexey's Home Assistant Add-ons repository for the [Home Assistant](https://www.
 
 * Snapcast - Multiroom client-server audio player.
 * Librespot - Open source client library for Spotify, works as a Spotify Connect receiver.
-* MPD - Media player with minimalistic web ui.
 * Shairport Sync - AirPlay audio player
 
 More about the Add-ons can be found in their folders.
