@@ -1,6 +1,6 @@
 {
   "name": "Snapclient",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "slug": "snapclient",
   "description": "Snapcast - Synchronous audio player",
   "url": "https://github.com/amatashkin/hassio-addons/tree/master/snapclient",
