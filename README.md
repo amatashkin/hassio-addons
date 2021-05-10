@@ -23,7 +23,7 @@ https://github.com/amatashkin/hassio-addons
 
 On Windows WSL build without mapping docker config volume to workaround docker cli login errors: [Upload fail on <X> and error in docker login](https://github.com/home-assistant/builder/issues/35#issuecomment-549574961)
 ```
-docker run --rm --privileged -v \
+docker run --rm --privileged \
   -v "$(pwd)":/data homeassistant/amd64-builder \
   --all -t /data --docker-user <user> --docker-password <token>
 ```
