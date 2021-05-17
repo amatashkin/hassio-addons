@@ -1,6 +1,6 @@
 {
   "name": "Snapserver",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "slug": "snapserver",
   "description": "Snapcast - Synchronous audio player",
   "url": "https://github.com/amatashkin/hassio-addons/tree/master/snapserver",
